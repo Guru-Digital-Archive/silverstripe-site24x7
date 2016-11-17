@@ -1,0 +1,9 @@
+---
+Name: Silverstripe Site24x7
+---
+SiteConfig:
+  extensions:
+    - Site24x7SiteConfig
+Controller:
+  extensions:
+    - Site24x7ControllerExtension

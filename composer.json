@@ -1,0 +1,14 @@
+{
+	"name": "gdmedia/silverstripe-site24x7",
+	"description": "Package to include the Guru feedback system",
+	"keywords": [
+		"RUM",
+		"monitoring",
+		"site24x7"
+	],
+	"license": "BSD-3-Clause",
+	"type": "silverstripe-module",
+	"extra": {
+		"installer-name": "silverstripe-site24x7"
+	}
+}
