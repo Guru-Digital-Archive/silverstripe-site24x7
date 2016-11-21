@@ -10,7 +10,7 @@ class Site24x7ControllerExtension extends Extension
         $isInstalled = false;
         $isCMS       = (bool) is_subclass_of($this->owner, "LeftAndMain");
         $isAjax      = Director::is_ajax();
-        $configTable = SiteConfig::current_site_config()->baseTable();
+        $configTable = "SiteConfig";
         $dbSchema    = DB::get_schema();
 
         if ($dbSchema->hasTable($configTable)) {
