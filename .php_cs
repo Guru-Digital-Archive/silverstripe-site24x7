@@ -1,8 +1,20 @@
 <?php
-$finder = Symfony\CS\Finder::create()
-    ->in(__DIR__.'/code');
 
-return Symfony\CS\Config::create()
-        ->level(Symfony\CS\FixerInterface::PSR2_LEVEL)
-        ->fixers(['strict_param', 'short_array_syntax', 'align_double_arrow', 'align_equals'])
-        ->finder($finder);
+return PhpCsFixer\Config::create()
+        ->setRiskyAllowed(true)
+        ->setRules([
+            '@PHP56Migration'         => true,
+            '@PSR2'                   => true,
+            'array_syntax'            => ['syntax' => 'short'],
+            'binary_operator_spaces' => [
+                'align_double_arrow' => true,
+                'align_equals'       => true
+            ],
+            'single_quote'           => true,
+        ])
+        ->setFinder(
+            PhpCsFixer\Finder::create()
+            ->exclude('tests/Fixtures')
+            ->in(__DIR__)
+        )
+;

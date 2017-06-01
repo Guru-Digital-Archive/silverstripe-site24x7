@@ -5,7 +5,6 @@
  */
 class Site24x7ControllerExtension extends Extension
 {
-
     public function onBeforeInit()
     {
         $isInstalled         = false;
@@ -18,18 +17,17 @@ class Site24x7ControllerExtension extends Extension
         $isAjax              = Director::is_ajax();
 
         if (!$isIgnoredController && !$isAjax && DB::is_active()) {
-
-            $configTable = "SiteConfig";
+            $configTable = 'SiteConfig';
             $dbSchema    = DB::get_schema();
 
             if ($dbSchema->hasTable($configTable)) {
                 $configFileds = $dbSchema->fieldList($configTable);
-                $isInstalled  = isset($configFileds["RUMKey"]);
+                $isInstalled  = isset($configFileds['RUMKey']);
             }
 
             if ($isInstalled && !empty(SiteConfig::current_site_config()->RUMKey)) {
-                Requirements::javascriptTemplate(Director::getAbsFile(SS_SITE_24X7_DIR . "/assets/javascript/site24x7.template.js"), [
-                    "RUMKey" => SiteConfig::current_site_config()->RUMKey,
+                Requirements::javascriptTemplate(Director::getAbsFile(SS_SITE_24X7_DIR . '/assets/javascript/site24x7.template.js'), [
+                    'RUMKey' => SiteConfig::current_site_config()->RUMKey,
                 ]);
             }
         }
